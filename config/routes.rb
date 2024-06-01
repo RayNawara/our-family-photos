@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Filepond::Rails::Engine, at: '/filepond'
+
   resources :posts
   devise_for :users
   # get 'home/index'

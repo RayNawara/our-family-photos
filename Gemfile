@@ -74,3 +74,4 @@ end
 
 gem 'devise'
 gem "font-awesome-sass"
+gem 'filepond-rails', path: '/home/ray/Education/gem/filepond-rails'

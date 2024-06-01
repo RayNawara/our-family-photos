@@ -2,3 +2,16 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "bootstrap"
+
+import { FilePondRails, FilePond } from 'filepond-rails'
+
+window.FilePond = FilePond
+window.FilePondRails = FilePondRails
+
+const input = document.querySelector('.filepond')
+FilePondRails.create(input, {
+  credits: {},
+  storeAsFile: true,
+  allowMultiple: true,
+  allowReorder: true
+})

@@ -1,3 +1,9 @@
+PATH
+  remote: /home/ray/Education/gem/filepond-rails
+  specs:
+    filepond-rails (1.0.1)
+      rails (>= 7.0, < 8)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -285,6 +291,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  filepond-rails!
   font-awesome-sass
   image_processing (~> 1.2)
   importmap-rails
