@@ -8,3 +8,6 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@5.2.0/dist/js/bootstrap.esm.js"
 pin "@popperjs/core", to: "https://unpkg.com/@popperjs/core@2.11.6/dist/esm/index.js"
 pin "@rails/activestorage", to: "@rails--activestorage.js" # @7.0.8
+pin_all_from "app/javascript/custom", under: "custom"
+pin "filepond-plugin-image-preview" # @4.6.12
+pin "filepond-plugin-file-validate-type" # @1.2.9
