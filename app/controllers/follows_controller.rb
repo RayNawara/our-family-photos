@@ -5,7 +5,6 @@ class FollowsController < ApplicationController
   def follow
     current_user.follow(@user)
     redirect_back(fallback_location: root_path)
-
   end
 
   def cancel_request
