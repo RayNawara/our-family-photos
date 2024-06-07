@@ -87,6 +87,7 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     autoprefixer-rails (10.4.16.0)
       execjs (~> 2)
+    awesome_print (1.9.2)
     base64 (0.2.0)
     bcrypt (3.1.20)
     bigdecimal (3.1.8)
@@ -289,6 +290,7 @@ PLATFORMS
 
 DEPENDENCIES
   activestorage-validator
+  awesome_print
   bootsnap
   bootstrap (~> 5.2.0)
   capybara
