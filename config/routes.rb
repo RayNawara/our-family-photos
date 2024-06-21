@@ -2,9 +2,16 @@ Rails.application.routes.draw do
   mount Filepond::Rails::Engine, at: '/filepond'
 
   resources :posts
+
   devise_for :users
-  # get 'home/index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Restrict registrations to admins ONLY
+  constraints lambda { |req| req.env['warden'].user&.admin? } do
+      devise_scope :user do
+          get "/sign_up", to: "users/registrations#new" # Removed "/users"
+          post "/sign_up", to: "users/registrations#create" # Removed "/users"
+      end
+  end
 
   # Defines the root path route ("/")
   root "home#index"
