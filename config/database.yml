@@ -17,6 +17,6 @@ test:
 production:
   <<: *default
   database: our_family_photos_production
-  host: our-family-photos-db
+  host: ruby-gems-bootcamp-db
   username: postgres
   password: Postgres_secret_2024!
