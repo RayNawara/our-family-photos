@@ -23,7 +23,7 @@ RUN apt-get update -qq && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Install Node.js
-ARG NODE_VERSION=20.15.0
+ARG NODE_VERSION=18.9.1
 ENV PATH=/usr/local/node/bin:$PATH
 RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
     /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
@@ -35,7 +35,7 @@ FROM base as build
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential libvips pkg-config
+    apt-get install --no-install-recommends -y build-essential libpq-dev libvips
 
 # Build options
 ENV PATH="/usr/local/node/bin:$PATH"
@@ -64,7 +64,7 @@ FROM base
 
 # Install packages needed for deployment
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl imagemagick libsqlite3-0 libvips && \
+    apt-get install --no-install-recommends -y curl imagemagick libvips postgresql-client && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built artifacts: gems, application
@@ -74,17 +74,12 @@ COPY --from=build /rails /rails
 # Run and own only the runtime files as a non-root user for security
 RUN groupadd --system --gid 1000 rails && \
     useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash && \
-    mkdir /data && \
-    chown -R 1000:1000 db log storage tmp /data
+    chown -R 1000:1000 db log storage tmp
 USER 1000:1000
-
-# Deployment options
-ENV DATABASE_URL="sqlite3:///data/production.sqlite3"
 
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-VOLUME /data
 CMD ["./bin/rails", "server"]
