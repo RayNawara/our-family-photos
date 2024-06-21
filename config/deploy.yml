@@ -33,14 +33,11 @@ registry:
 env:
   clear:
     HOSTNAME: our-family-photos.raynawara.com
-    DB_HOST: our-family-photos-db
     RAILS_SERVE_STATIC_FILES: true
     RAILS_LOG_TO_STDOUT: true
   secret:
     - KAMAL_REGISTRY_PASSWORD
     - RAILS_MASTER_KEY
-    - DB_PASSWORD
-    - POSTGRES_PASSWORD
 
 # Use a different ssh user than root
 # ssh:
