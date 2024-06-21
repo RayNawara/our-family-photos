@@ -40,13 +40,10 @@ RUN apt-get update -qq && \
 # Build options
 ENV PATH="/usr/local/node/bin:$PATH"
 
-# Mount your local gem directory
-VOLUME /home/ray/Education/gem/filepond-rails:/app/vendor/gems/filepond-rails
-
 # Install application gems
 COPY --link Gemfile Gemfile.lock ./
-RUN bundle install
-RUN    bundle exec bootsnap precompile --gemfile && \
+RUN bundle install && \
+    bundle exec bootsnap precompile --gemfile && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 
 # Copy application code
