@@ -38,6 +38,7 @@ env:
   secret:
     - KAMAL_REGISTRY_PASSWORD
     - RAILS_MASTER_KEY
+    - POSTGRES_PASSWORD
 
 # Use a different ssh user than root
 # ssh:
