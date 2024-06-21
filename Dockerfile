@@ -40,6 +40,9 @@ RUN apt-get update -qq && \
 # Build options
 ENV PATH="/usr/local/node/bin:$PATH"
 
+# Mount your local gem directory
+VOLUME /home/ray/Education/gem/filepond-rails:/app/vendor/gems/filepond-rails
+
 # Install application gems
 COPY --link Gemfile Gemfile.lock ./
 RUN bundle install && \
