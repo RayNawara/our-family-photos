@@ -82,7 +82,7 @@ gem 'filepond-rails'
 gem 'activestorage-validator'
 gem 'awesome_print'
 
-gem "kamal", "~> 1.7"
+gem "kamal"
 
 gem "dockerfile-rails", ">= 1.6", :group => :development
 
