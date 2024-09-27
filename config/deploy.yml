@@ -25,26 +25,6 @@ env:
     - RAILS_MASTER_KEY
     - POSTGRES_PASSWORD
 
-accessories:
-  db:
-    image: postgres:16
-    host: 45.159.231.79
-    port: 5432
-    env:
-      clear:
-        POSTGRES_USER: 'postgres'
-        POSTGRES_DB: 'ruby_gems_bootcamp_production'
-        POSTGRES_HOST: ruby-gems-bootcamp-db
-      secret:
-        - DB_PASSWORD
-        - POSTGRES_PASSWORD
-    files:
-      - config/init.sql:/docker-entrypoint-initdb.d/setup.sql
-    directories:
-      - dataPg:/var/lib/postgresql/data
-    options:
-      network: private
-
 builder:
   arch: amd64
 
