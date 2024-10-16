@@ -1,3 +1,4 @@
+<% require "dotenv"; Dotenv.load(".env") %>
 service: our-family-photos
 
 image: rjnawara/our-family-photos
