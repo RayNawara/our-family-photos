@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   # Apply HTTP Basic Authentication only in production
-  before_action :authenticate, if: -> { Rails.env.production? }
+  # before_action :authenticate, if: -> { Rails.env.production? }
 
   private
 

@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.3.2"
+ruby "3.3.4"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.2.0.beta1"
+gem "rails"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -82,7 +82,7 @@ gem 'filepond-rails'
 gem 'activestorage-validator'
 gem 'awesome_print'
 
-gem "kamal", "~> 1.7"
+gem "kamal"
 
 gem "dockerfile-rails", ">= 1.6", :group => :development
 
